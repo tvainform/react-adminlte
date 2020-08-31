@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import Person from "./Person/Person";
 
-export default class Personal extends Component {
+export default class Persons extends Component {
     render() {
         return (
  <div>
@@ -26,6 +27,11 @@ export default class Personal extends Component {
     <div className="card card-solid">
       <div className="card-body pb-0">
         <div className="row d-flex align-items-stretch">
+
+          <Person/>
+
+
+
           <div className="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
             <div className="card bg-light">
               <div className="card-header text-muted border-bottom-0">
