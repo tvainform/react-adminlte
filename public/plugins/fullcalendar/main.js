@@ -888,7 +888,7 @@ Docs & License: https://fullcalendar.io/
         el.classList.remove('fc-unselectable');
         el.removeEventListener('selectstart', preventDefault);
     }
-    /* Context Menu
+    /* Context Aside
     ----------------------------------------------------------------------------------------------------------------------*/
     function preventContextMenu(el) {
         el.addEventListener('contextmenu', preventDefault);

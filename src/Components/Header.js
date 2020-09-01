@@ -30,7 +30,7 @@ export default class Header extends Component {
   </form>
   {/* Right navbar links */}
   <ul className="navbar-nav ml-auto">
-    {/* Messages Dropdown Menu */}
+    {/* Messages Dropdown Aside */}
     <li className="nav-item dropdown">
       <a className="nav-link" data-toggle="dropdown" href="#">
         <i className="far fa-comments" />
@@ -88,7 +88,7 @@ export default class Header extends Component {
         <a href="#" className="dropdown-item dropdown-footer">See All Messages</a>
       </div>
     </li>
-    {/* Notifications Dropdown Menu */}
+    {/* Notifications Dropdown Aside */}
     <li className="nav-item dropdown">
       <a className="nav-link" data-toggle="dropdown" href="#">
         <i className="far fa-bell" />
