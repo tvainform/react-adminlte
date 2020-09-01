@@ -10,6 +10,7 @@ import Persons from './Components/Persons/Persons';
 import Coveralls from './Components/Coveralls';
 import Error404 from './Components/Error404';
 import Calendar from './Components/Calendar';
+import Incidents from "./Components/Incidents/Incidents";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route exact path="/persons" component={Persons}/>
       <Route exact path="/coveralls" component={Coveralls}/>
       <Route exact path="/calendar" component={Calendar}/>
+      <Route exact path="/incidents" component={Incidents}/>
       <Route component={Error404}/>
     </Switch>
   </div>

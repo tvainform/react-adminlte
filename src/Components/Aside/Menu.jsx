@@ -35,20 +35,17 @@ class Menu extends Component {
                             </NavItem>
                         </Nav>
                     </NavItem>
-                    <li className="nav-item">
-                        <a href="#" className="nav-link">
+                    <NavItem className="nav-item">
+                        <NavLink activeClassName="active" to="#" className="nav-link">
                             <i className="nav-icon fas fa-copy" />
-                            <p>
-                                Заявки и инциденты
-                                <i className="fas fa-angle-left right" />
-                            </p>
-                        </a>
-                        <ul className="nav nav-treeview">
+                            <p>Заявки и инциденты<i className="fas fa-angle-left right" /></p>
+                        </NavLink>
+                        <Nav className="nav-treeview">
                             <li className="nav-item">
-                                <a href="pages/layout/top-nav.html" className="nav-link">
+                                <NavLink activeClassName="active" to="/incidents" className="nav-link">
                                     <i className="far fa-circle nav-icon" />
                                     <p>Все инциденты</p>
-                                </a>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
                                 <a href="pages/layout/top-nav-sidebar.html" className="nav-link">
@@ -92,8 +89,8 @@ class Menu extends Component {
                                     <p>Collapsed Sidebar</p>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
+                        </Nav>
+                    </NavItem>
                     <li className="nav-item">
                         <a href="#" className="nav-link">
                             <i className="nav-icon fas fa-chart-pie" />
