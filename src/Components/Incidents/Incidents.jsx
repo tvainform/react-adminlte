@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import {Card, Table} from "react-bootstrap";
 
 export default class Incidents extends Component {
@@ -9,18 +8,22 @@ export default class Incidents extends Component {
         script.async = true;
         document.body.appendChild(script);
     }
-    componentDidMount(){
-        const script = document.createElement("script");
-        script.src = "js/script.js"
-        script.async = true;
-        document.body.appendChild(script);
+
+    importxlsx = ()=>
+    {
+        const xlsx = require("xlsx");
+        const wb = xlsx.readFile("file.xlsx", {type: "binary"});
+        const ws = wb.Sheets["АСУТП"];
+
+        const data = xlsx.utils.sheet_to_json(ws,{editable: true});
+        //console.log(data);
+
     }
 
     render(){
     return (
         <div>
-
-
+            <button onClick={this.importxlsx}>button</button>
             <section className="content-header">
                 <div className="container-fluid">
                     <div className="row mb-2">

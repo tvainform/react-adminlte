@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import './App.css';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
@@ -11,14 +11,18 @@ import Coveralls from './Components/Coveralls';
 import Error404 from './Components/Error404';
 import Calendar from './Components/Calendar';
 import Incidents from "./Components/Incidents/Incidents";
+import ContentHeader from "./Components/ContentHeader/ContentHeader";
+import Breadcrumbs from "./Components/ContentHeader/Breadcrumbs";
 
 
 function App() {
   return (
-<Router>
+<BrowserRouter>
   <Header/>
   <Aside/>
   <div className="content-wrapper">
+    <ContentHeader/>
+    <Breadcrumbs/>
     <Switch>
       <Route exact path="/" component={Main}/>
       <Route exact path="/about" component={About}/>
@@ -30,7 +34,7 @@ function App() {
     </Switch>
   </div>
   <Footer/>
-</Router>
+</BrowserRouter>
   );
 }
 

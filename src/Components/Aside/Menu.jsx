@@ -10,7 +10,7 @@ class Menu extends Component {
                     {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
                     <NavItem className="menu-open">
-                        <NavLink to="#" activeClassName="active" className="nav-link">
+                        <NavLink to="#" activeClassName="" className="nav-link">
                             <i className="nav-icon fas fa-users" />
                             <p>Отдел<i className="right fas fa-angle-left" /></p>
                         </NavLink>
@@ -36,13 +36,13 @@ class Menu extends Component {
                         </Nav>
                     </NavItem>
                     <NavItem className="nav-item">
-                        <NavLink activeClassName="active" to="#" className="nav-link">
+                        <NavLink activeClassName="" to="#" className="nav-link">
                             <i className="nav-icon fas fa-copy" />
                             <p>Заявки и инциденты<i className="fas fa-angle-left right" /></p>
                         </NavLink>
                         <Nav className="nav-treeview">
                             <li className="nav-item">
-                                <NavLink activeClassName="active" to="/incidents" className="nav-link">
+                                <NavLink to="/incidents" className="nav-link">
                                     <i className="far fa-circle nav-icon" />
                                     <p>Все инциденты</p>
                                 </NavLink>
