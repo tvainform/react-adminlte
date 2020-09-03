@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
 
 
-const IncidentItem = () => {
+const IncidentItem = (props) => {
     return(
         <tr>
-            <td>Trident</td>
-            <td>Internet
-                Explorer 4.0
-            </td>
-            <td>Win 95+</td>
-            <td> 4</td>
-            <td>X</td>
+            <td>{props.d1}</td>
+            <td>{props.d2}</td>
+            <td>{props.d3}</td>
+            <td>{props.d4}</td>
+            <td>{props.d5}</td>
+            <td>{props.d6}</td>
+            <td>{props.d7}</td>
+            <td>{props.d8}</td>
+            <td>{props.d9}</td>
+            <td>{props.d10}</td>
         </tr>
     )
 }
