@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Card, Table} from "react-bootstrap";
+import IncidentItem from "./IncidentItem";
 
 export default class Incidents extends Component {
     componentDidMount(){
@@ -7,17 +8,6 @@ export default class Incidents extends Component {
         script.src = "js/datatable.js"
         script.async = true;
         document.body.appendChild(script);
-    }
-
-    importxlsx = ()=>
-    {
-        const xlsx = require("xlsx");
-        const wb = xlsx.readFile("file.xlsx", {type: "binary"});
-        const ws = wb.Sheets["АСУТП"];
-
-        const data = xlsx.utils.sheet_to_json(ws,{editable: true});
-        //console.log(data);
-
     }
 
     render(){
@@ -60,7 +50,8 @@ export default class Incidents extends Component {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
+                                        <IncidentItem/>
+                                        {/*<tr>
                                             <td>Trident</td>
                                             <td>Internet
                                                 Explorer 4.0
@@ -466,7 +457,7 @@ export default class Incidents extends Component {
                                             <td>-</td>
                                             <td>-</td>
                                             <td>U</td>
-                                        </tr>
+                                        </tr>*/}
                                         </tbody>
                                         <tfoot>
                                         <tr>

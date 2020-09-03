@@ -12,30 +12,28 @@ import Error404 from './Components/Error404';
 import Calendar from './Components/Calendar';
 import Incidents from "./Components/Incidents/Incidents";
 import ContentHeader from "./Components/ContentHeader/ContentHeader";
-import Breadcrumbs from "./Components/ContentHeader/Breadcrumbs";
 
 
-function App() {
-  return (
-<BrowserRouter>
-  <Header/>
-  <Aside/>
-  <div className="content-wrapper">
-    <ContentHeader/>
-    <Breadcrumbs/>
-    <Switch>
-      <Route exact path="/" component={Main}/>
-      <Route exact path="/about" component={About}/>
-      <Route exact path="/persons" component={Persons}/>
-      <Route exact path="/coveralls" component={Coveralls}/>
-      <Route exact path="/calendar" component={Calendar}/>
-      <Route exact path="/incidents" component={Incidents}/>
-      <Route component={Error404}/>
-    </Switch>
-  </div>
-  <Footer/>
-</BrowserRouter>
-  );
+const App = (props) => {
+    return (
+        <BrowserRouter>
+            <Header/>
+            <Aside/>
+            <div className="content-wrapper">
+                <ContentHeader/>
+                <Switch>
+                    <Route exact path="/" render={() => <Main />}/>
+                    <Route exact path="/about" render={() => <About />}/>
+                    <Route exact path="/persons" render={() => <Persons personsData={props.state.personsData}/>}/>
+                    <Route exact path="/coveralls" render={() => <Coveralls/>}/>
+                    <Route exact path="/calendar" render={() => <Calendar/>}/>
+                    <Route exact path="/incidents" render={() => <Incidents incidentData={props.state.importxlsx}/>}/>
+                    <Route render={() => <Error404/>}/>
+                </Switch>
+            </div>
+            <Footer/>
+        </BrowserRouter>
+    );
 }
 
 export default App;
