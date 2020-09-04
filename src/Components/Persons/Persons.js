@@ -3,7 +3,7 @@ import PersonItem from "./PersonItem";
 
 
 const Persons = (props) => {
-    let PersonsElements = props.personsData.map(el =>
+    let PersonsElements = props.state.personsData.map(el =>
         <PersonItem id={el.id} name={el.name} profession={el.profession} about={el.about}/>
     );
 

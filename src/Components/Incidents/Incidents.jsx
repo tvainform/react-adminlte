@@ -1,22 +1,36 @@
 import React, {Component} from 'react';
-import {Card, Table} from "react-bootstrap";
+import {Button, Card, Table} from "react-bootstrap";
 import IncidentItem from "./IncidentItem";
 import IncidentTableHeader from "./IncidentTableHeader";
 
 
 
 const Incidents = (props) => {
-    let IncidentElements = props.incidentData.map(el =>
-        <IncidentItem id={el.id} d1={el.d1} d2={el.d2} d3={el.d3} d4={el.d4} d5={el.d5} d6={el.d6} d7={el.d7} d8={el.d8}
-                      d9={el.d9} d10={el.d10}/>
+    let IncidentTableHeaderList = props.state.incidentTableHeader.map(el =>
+        <IncidentTableHeader h1={el.h1}
+                             h2={el.h2}
+                             h3={el.h3}
+                             h4={el.h4}
+                             h5={el.h5}
+                             h6={el.h6}
+                             h7={el.h7}
+                             h8={el.h8}
+                             h9={el.h9}
+                             h10={el.h10}/>
     );
-    let IncidentTableHeaderList = props.incidentTableHeader.map(el =>
-        <IncidentTableHeader h1={el.h1} h2={el.h2} h3={el.h3} h4={el.h4} h5={el.h5} h6={el.h6} h7={el.h7} h8={el.h8}
-                             h9={el.h9} h10={el.h10}/>
+    let IncidentElements = props.state.incidentData.map(el =>
+        <IncidentItem id={el.id}
+                      d1={el.d1}
+                      d2={el.d2}
+                      d3={el.d3}
+                      d4={el.d4}
+                      d5={el.d5}
+                      d6={el.d6}
+                      d7={el.d7}
+                      d8={el.d8}
+                      d9={el.d9}
+                      d10={el.d10}/>
     );
-
-
-
 
 /*
     const wb = XLSX.readFile("file.xlsx", {type: "binary"});
@@ -31,6 +45,18 @@ const Incidents = (props) => {
             document.body.appendChild(script);
         };*/
 
+    let newIncidentElement = React.createRef();
+    let addIncident = () => {
+        let text = newIncidentElement.current.value;
+        props.addIncident(text);
+        newIncidentElement.current.value = "";
+    }
+
+    let onIncidentChange = () =>{
+        let text = newIncidentElement.current.value;
+        /*props.updateNewIncidentText(text);*/
+    }
+
     return (
         <div>
             <section className="content">
@@ -39,7 +65,9 @@ const Incidents = (props) => {
                         <div className="col-12">
                             <Card>
                                 <div className="card-header">
-                                    <h3 className="card-title">Список всех заявок</h3>
+                                    <h3 className="card-title"></h3>
+                                    <Button onClick={addIncident}>Добавить заявку</Button>
+                                    <textarea onChange={onIncidentChange} ref={newIncidentElement} value={props.incidentTable.newIncidentText}/>
                                 </div>
                                 {/*<!-- /.card-header -->*/}
                                 <div className="card-body">

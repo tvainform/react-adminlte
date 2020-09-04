@@ -24,10 +24,10 @@ const App = (props) => {
           <Switch>
             <Route exact path="/" render={() => <Main />}/>
             <Route exact path="/about" render={() => <About />}/>
-            <Route exact path="/persons" render={() => <Persons personsData={props.state.personsData}/>}/>
+            <Route exact path="/persons" render={() => <Persons state={props.state}/>}/>
             <Route exact path="/coveralls" render={() => <Coveralls/>}/>
             <Route exact path="/calendar" render={() => <Calendar/>}/>
-            <Route exact path="/incidents" render={() => <Incidents incidentTableHeader={props.state.incidentTableHeader} incidentData={props.state.incidentData}/>}/>
+            <Route exact path="/incidents" render={() => <Incidents state={props.state.incidentTable} addIncident={props.addIncident} updateNewIncidentText={props.updateNewIncidentText} />}/>
             <Route render={() => <Error404/>}/>
           </Switch>
         </div>

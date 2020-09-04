@@ -3,7 +3,7 @@
         "responsive": true,
         "autoWidth": false,
     });
-/*    $('#example2').DataTable({
+    $('#example2').DataTable({
         "paging": true,
         "lengthChange": false,
         "searching": false,
@@ -11,5 +11,5 @@
         "info": true,
         "autoWidth": false,
         "responsive": true,
-    });*/
+    });
 });
