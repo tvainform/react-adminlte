@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import './App.css';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
@@ -13,10 +13,9 @@ import Calendar from './Components/Calendar';
 import Incidents from "./Components/Incidents/Incidents";
 import ContentHeader from "./Components/ContentHeader/ContentHeader";
 
-
 const App = (props) => {
   return (
-      <BrowserRouter>
+      <div className="wrapper">
         <Header/>
         <Aside/>
         <div className="content-wrapper">
@@ -32,7 +31,7 @@ const App = (props) => {
           </Switch>
         </div>
         <Footer/>
-      </BrowserRouter>
+      </div>
   );
 }
 

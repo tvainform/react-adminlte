@@ -46,15 +46,15 @@ const Incidents = (props) => {
         };*/
 
     let newIncidentElement = React.createRef();
+
     let addIncident = () => {
-        let text = newIncidentElement.current.value;
-        props.addIncident(text);
-        newIncidentElement.current.value = "";
+        props.addIncident();
+        props.updateNewIncidentText('');
     }
 
-    let onIncidentChange = () =>{
+    let onIncidentChange = () => {
         let text = newIncidentElement.current.value;
-        /*props.updateNewIncidentText(text);*/
+        props.updateNewIncidentText(text);
     }
 
     return (
@@ -67,7 +67,7 @@ const Incidents = (props) => {
                                 <div className="card-header">
                                     <h3 className="card-title"></h3>
                                     <Button onClick={addIncident}>Добавить заявку</Button>
-                                    <textarea onChange={onIncidentChange} ref={newIncidentElement} value={props.incidentTable.newIncidentText}/>
+                                    <textarea onChange={onIncidentChange} ref={newIncidentElement} value={props.newIncidentText}/>
                                 </div>
                                 {/*<!-- /.card-header -->*/}
                                 <div className="card-body">
