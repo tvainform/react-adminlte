@@ -5,7 +5,7 @@ import * as XLSX from "xlsx";
 
 
 const Incidents = (props) => {
-    let IncidentTableHeaderList = props.state.incidentTable.incidentTableHeader.map(el =>
+    let IncidentTableHeaderList = props.incidents.incidentTableHeader.map(el =>
         <tr>
             <th>{el.h1}</th>
             <th>{el.h2}</th>
@@ -19,7 +19,7 @@ const Incidents = (props) => {
             <th>{el.h10}</th>
         </tr>
     );
-    let IncidentElements = props.state.incidentTable.incidentData.map(el =>
+    let IncidentElements = props.incidents.incidentData.map(el =>
         <tr>
             <td>{el.d1}</td>
             <td>{el.d2}</td>
@@ -53,12 +53,13 @@ const Incidents = (props) => {
     }
 
 
-    let addIncident = () => {
-        props.dispatch(addIncidentActionCreator());
+    let onAddIncident = () => {
+        props.store.dispatch(addIncidentActionCreator())
     }
 
     let onIncidentChange = (e) => {
-        props.dispatch(updateNewIncidentTextActionCreator(e.target.value));
+        let text = e.target.value;
+        props.store.dispatch(updateNewIncidentTextActionCreator(text))
     }
     return (
         <div>
@@ -69,9 +70,9 @@ const Incidents = (props) => {
                             <Card>
                                 <div className="card-header">
                                     <h3 className="card-title"></h3>
-                                    <Button onClick={addIncident}>Добавить заявку</Button><br/>
-                                    <input type="text" onChange={onIncidentChange} value={props.state.newFieldsText}/>
-                                    <input type="file" onChange={handleUpload} />
+                                    <Button onClick={onAddIncident}>Добавить заявку</Button><br/>
+                                    <input type="text" onChange={onIncidentChange} value={props.newFieldsText}/>
+
                                 </div>
                                 {/*<!-- /.card-header -->*/}
                                 <div className="card-body">

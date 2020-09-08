@@ -3,11 +3,22 @@ import personReducer from "./person-reducer";
 
 let store = {
     _state: {
-        personsData: [
-            {id: 1, name: "Вадим", profession: "Начальник отдела", about: "О себе"},
-            {id: 2, name: "Дима", profession: "Приборист", about: "О себе"},
-            {id: 3, name: "Сергей", profession: "Приборист", about: "О себе"}
-        ],
+        personTable: {
+            newPersonText: "",
+            personDataHeader: [
+                {
+                    name: "Номер заявки",
+                    profession: "Статус",
+                    about: "Подразделение инициатора",
+                }],
+            personData: [
+                {
+                    id: 1,
+                    name: "Вадим",
+                    profession: "Начальник отдела",
+                    about: "О себе"
+                }]
+        },
         incidentTable: {
             newFieldsText: "",
             incidentTableHeader: [
@@ -92,6 +103,7 @@ let store = {
     },
     dispatch(action) {
         this._state.incidentTable = incidentReducer(this._state.incidentTable, action);
+        this._state.personsData = personReducer(this._state.personTable, action);
         this.callSubscriber(this._state);
     }
 

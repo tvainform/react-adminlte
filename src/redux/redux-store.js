@@ -4,7 +4,7 @@ import personReducer from "./person-reducer";
 
 let reducers = combineReducers({
     incidentTable: incidentReducer,
-    personData: personReducer
+    personTable: personReducer
 })
 
 let store = createStore(reducers);

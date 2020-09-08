@@ -12,6 +12,7 @@ import Error404 from './Components/Error404';
 import Calendar from './Components/Calendar/Calendar';
 import Incidents from "./Components/Incidents/Incidents";
 import ContentHeader from "./Components/ContentHeader/ContentHeader";
+import IncidentsContainer from "./Components/Incidents/IncidentsContainer";
 
 const App = (props) => {
   return (
@@ -26,7 +27,7 @@ const App = (props) => {
             <Route exact path="/persons" render={() => <PersonsList state={props.state} dispatch={props.dispatch}/>}/>
             <Route exact path="/coveralls" render={() => <Coveralls/>}/>
             <Route exact path="/calendar" render={() => <Calendar/>}/>
-            <Route exact path="/incidents" render={() => <Incidents state={props.state} dispatch={props.dispatch} />}/>
+            <Route exact path="/incidents" render={() => <IncidentsContainer store={props.store} state={props.state} dispatch={props.dispatch} />}/>
             <Route render={() => <Error404/>}/>
           </Switch>
         </div>
