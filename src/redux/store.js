@@ -1,5 +1,5 @@
-const ADD_INCIDENT = 'ADD-INCIDENT';
-const UPDATE_NEW_INCIDENT_TEXT = 'UPDATE-NEW-INCIDENT-TEXT';
+import incidentReducer from "./incident-reducer";
+import personReducer from "./person-reducer";
 
 let store = {
     _state: {
@@ -8,8 +8,8 @@ let store = {
             {id: 2, name: "Дима", profession: "Приборист", about: "О себе"},
             {id: 3, name: "Сергей", profession: "Приборист", about: "О себе"}
         ],
-        newFieldsText: "",
         incidentTable: {
+            newFieldsText: "",
             incidentTableHeader: [
                 {
                     h1: "Номер заявки",
@@ -91,34 +91,11 @@ let store = {
         this._state.field = "";
     },
     dispatch(action) {
-        if (action.type === ADD_INCIDENT) {
-            let newIncident = {
-                id: 4,
-                d1: "",
-                d2: "",
-                d3: "",
-                d4: "",
-                d5: "",
-                d6: "",
-                d7: "",
-                d8: "",
-                d9: this._state.newFieldsText,
-                d10: "",
-            };
-            this._state.incidentTable.incidentData.push(newIncident);
-            //this._clearField(this._state.newFieldsText);
-            this._state.newFieldsText = "";
-            this.callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_INCIDENT_TEXT) {
-            this._state.newFieldsText = action.newText;
-            this.callSubscriber(this._state);
-        } else if (action.type === 'CLEAR-FIELD') {
-            this._state.field = "";
-        }
+        this._state.incidentTable = incidentReducer(this._state.incidentTable, action);
+        this.callSubscriber(this._state);
     }
+
 }
-export const addIncidentActionCreator = () => ({type: ADD_INCIDENT})
-export const updateNewIncidentTextActionCreator = (text) => ({type: UPDATE_NEW_INCIDENT_TEXT, newText: text})
 
 export default store;
 window.state = store;

@@ -244,15 +244,15 @@ class Menu extends Component {
                         </ul>
                     </li>
                     <li className="nav-header">EXAMPLES</li>
-                    <li className="nav-item">
-                        <a href="pages/calendar.html" className="nav-link">
+                    <NavItem className="nav-item">
+                        <NavLink to="/calendar" className="nav-link">
                             <i className="nav-icon fas fa-calendar-alt" />
                             <p>
                                 Calendar
                                 <span className="badge badge-info right">2</span>
                             </p>
-                        </a>
-                    </li>
+                        </NavLink>
+                    </NavItem>
                     <li className="nav-item">
                         <a href="pages/gallery.html" className="nav-link">
                             <i className="nav-icon far fa-image" />

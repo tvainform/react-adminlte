@@ -1,51 +1,57 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Button, Card, Table} from "react-bootstrap";
-import IncidentItem from "./IncidentItem";
-import IncidentTableHeader from "./IncidentTableHeader";
-import {addIncidentActionCreator, updateNewIncidentTextActionCreator} from "../../redux/state";
+import {addIncidentActionCreator, updateNewIncidentTextActionCreator} from "../../redux/incident-reducer";
+import * as XLSX from "xlsx";
 
 
 const Incidents = (props) => {
     let IncidentTableHeaderList = props.state.incidentTable.incidentTableHeader.map(el =>
-        <IncidentTableHeader h1={el.h1}
-                             h2={el.h2}
-                             h3={el.h3}
-                             h4={el.h4}
-                             h5={el.h5}
-                             h6={el.h6}
-                             h7={el.h7}
-                             h8={el.h8}
-                             h9={el.h9}
-                             h10={el.h10}/>
+        <tr>
+            <th>{el.h1}</th>
+            <th>{el.h2}</th>
+            <th>{el.h3}</th>
+            <th>{el.h4}</th>
+            <th>{el.h5}</th>
+            <th>{el.h6}</th>
+            <th>{el.h7}</th>
+            <th>{el.h8}</th>
+            <th>{el.h9}</th>
+            <th>{el.h10}</th>
+        </tr>
     );
     let IncidentElements = props.state.incidentTable.incidentData.map(el =>
-        <IncidentItem id={el.id}
-                      d1={el.d1}
-                      d2={el.d2}
-                      d3={el.d3}
-                      d4={el.d4}
-                      d5={el.d5}
-                      d6={el.d6}
-                      d7={el.d7}
-                      d8={el.d8}
-                      d9={el.d9}
-                      d10={el.d10}/>
+        <tr>
+            <td>{el.d1}</td>
+            <td>{el.d2}</td>
+            <td>{el.d3}</td>
+            <td>{el.d4}</td>
+            <td>{el.d5}</td>
+            <td>{el.d6}</td>
+            <td>{el.d7}</td>
+            <td>{el.d8}</td>
+            <td>{el.d9}</td>
+            <td>{el.d10}</td>
+        </tr>
     );
+    const handleUpload = (e) => {
+        e.preventDefault();
 
-/*
-    const wb = XLSX.readFile("file.xlsx", {type: "binary"});
-    const ws = wb.Sheets["АСУТП"];
-    const data = XLSX.utils.sheet_to_json(ws, {editable: true});
-    console.log(data);*/
+        let files = e.target.files, f = files[0];
+        let reader = new FileReader();
+        reader.onload = function (e) {
+            let data = e.target.result;
+            let readedData = XLSX.read(data, {type: 'binary'});
+            const wsname = readedData.SheetNames[0];
+            const ws = readedData.Sheets[wsname];
 
-/*        componentDidMount(){
-            const script = document.createElement("script");
-            script.src = "js/datatable.js"
-            script.async = true;
-            document.body.appendChild(script);
-        };*/
+            /* Convert array to json*/
+            const dataParse = XLSX.utils.sheet_to_json(ws, {header: 1});
+            console.log(dataParse);
+            //setFileUploaded(dataParse);
+        };
+        reader.readAsBinaryString(f)
+    }
 
-    /*let newIncidentElement = React.createRef();*/
 
     let addIncident = () => {
         props.dispatch(addIncidentActionCreator());
@@ -64,8 +70,8 @@ const Incidents = (props) => {
                                 <div className="card-header">
                                     <h3 className="card-title"></h3>
                                     <Button onClick={addIncident}>Добавить заявку</Button><br/>
-
                                     <input type="text" onChange={onIncidentChange} value={props.state.newFieldsText}/>
+                                    <input type="file" onChange={handleUpload} />
                                 </div>
                                 {/*<!-- /.card-header -->*/}
                                 <div className="card-body">

@@ -1,31 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-export default class Calendar extends Component {
-    componentDidMount(){
-        const script = document.createElement("script");
-        script.src = "js/calendar.js"
-        script.async = true;
-        document.body.appendChild(script);
-    }
-    render() {
+const Calendar = () => {
         return (
    <div>
-  {/* Content Header (Page header) */}
-  <section className="content-header">
-    <div className="container-fluid">
-      <div className="row mb-2">
-        <div className="col-sm-6">
-          <h1>Calendar</h1>
-        </div>
-        <div className="col-sm-6">
-          <ol className="breadcrumb float-sm-right">
-            <li className="breadcrumb-item"><a href="#">Home</a></li>
-            <li className="breadcrumb-item active">Calendar</li>
-          </ol>
-        </div>
-      </div>
-    </div>{/* /.container-fluid */}
-  </section>
   {/* Main content */}
   <section className="content">
     <div className="container-fluid">
@@ -102,5 +79,5 @@ export default class Calendar extends Component {
 </div>
 
         )
-    }
 }
+export default Calendar;

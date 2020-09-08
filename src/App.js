@@ -6,10 +6,10 @@ import Footer from './Components/Footer';
 import Aside from './Components/Aside/Aside';
 import Main from './Components/Main';
 import About from './Components/About';
-import Persons from './Components/Persons/Persons';
+import PersonsList from './Components/Persons/PersonsList';
 import Coveralls from './Components/Coveralls';
 import Error404 from './Components/Error404';
-import Calendar from './Components/Calendar';
+import Calendar from './Components/Calendar/Calendar';
 import Incidents from "./Components/Incidents/Incidents";
 import ContentHeader from "./Components/ContentHeader/ContentHeader";
 
@@ -23,7 +23,7 @@ const App = (props) => {
           <Switch>
             <Route exact path="/" render={() => <Main />}/>
             <Route exact path="/about" render={() => <About />}/>
-            <Route exact path="/persons" render={() => <Persons state={props.state}/>}/>
+            <Route exact path="/persons" render={() => <PersonsList state={props.state} dispatch={props.dispatch}/>}/>
             <Route exact path="/coveralls" render={() => <Coveralls/>}/>
             <Route exact path="/calendar" render={() => <Calendar/>}/>
             <Route exact path="/incidents" render={() => <Incidents state={props.state} dispatch={props.dispatch} />}/>

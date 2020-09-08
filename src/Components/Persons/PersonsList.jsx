@@ -1,8 +1,9 @@
-import React, {Component} from 'react'
+import React from 'react'
 import PersonItem from "./PersonItem";
 
 
-const Persons = (props) => {
+const PersonsList = (props) => {
+
     let PersonsElements = props.state.personsData.map(el =>
         <PersonItem id={el.id} name={el.name} profession={el.profession} about={el.about}/>
     );
@@ -38,4 +39,4 @@ const Persons = (props) => {
     )
 }
 
-export default Persons;
+export default PersonsList;

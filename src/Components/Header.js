@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 export default class Header extends Component {
     render() {
         return (
-            <div>
 <nav className="main-header navbar navbar-expand navbar-white navbar-light">
   {/* Left navbar links */}
   <ul className="navbar-nav">
@@ -127,8 +126,6 @@ export default class Header extends Component {
     </li>
   </ul>
 </nav>
-
-            </div>
         )
     }
 }
