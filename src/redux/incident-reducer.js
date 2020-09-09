@@ -39,7 +39,7 @@ let initialState = {
 
 const incidentReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_INCIDENT:
+        case ADD_INCIDENT: {
             let newIncident = {
                 id: 4,
                 d1: "",
@@ -53,12 +53,17 @@ const incidentReducer = (state = initialState, action) => {
                 d9: state.newFieldsText,
                 d10: "",
             };
-            state.incidentData.push(newIncident);
-            state.newFieldsText = "";
-            return state;
-        case UPDATE_NEW_INCIDENT_TEXT:
-            state.newFieldsText = action.newText;
-            return state;
+            let stateCopy = {...state};
+            stateCopy.incidentData = [...state.incidentData];
+            stateCopy.incidentData.push(newIncident);
+            stateCopy.newFieldsText = "";
+            return stateCopy;
+        }
+        case UPDATE_NEW_INCIDENT_TEXT: {
+            let stateCopy = {...state}
+            stateCopy.newFieldsText = action.newText;
+            return stateCopy;
+        }
         default:
             return state;
     }

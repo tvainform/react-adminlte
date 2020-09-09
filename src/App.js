@@ -10,7 +10,6 @@ import PersonsList from './Components/Persons/PersonsList';
 import Coveralls from './Components/Coveralls';
 import Error404 from './Components/Error404';
 import Calendar from './Components/Calendar/Calendar';
-import Incidents from "./Components/Incidents/Incidents";
 import ContentHeader from "./Components/ContentHeader/ContentHeader";
 import IncidentsContainer from "./Components/Incidents/IncidentsContainer";
 
@@ -24,10 +23,10 @@ const App = (props) => {
           <Switch>
             <Route exact path="/" render={() => <Main />}/>
             <Route exact path="/about" render={() => <About />}/>
-            <Route exact path="/persons" render={() => <PersonsList state={props.state} dispatch={props.dispatch}/>}/>
+            <Route exact path="/persons" render={() => <PersonsList/>}/>
             <Route exact path="/coveralls" render={() => <Coveralls/>}/>
             <Route exact path="/calendar" render={() => <Calendar/>}/>
-            <Route exact path="/incidents" render={() => <IncidentsContainer store={props.store} state={props.state} dispatch={props.dispatch} />}/>
+            <Route exact path="/incidents" render={() => <IncidentsContainer/>}/>
             <Route render={() => <Error404/>}/>
           </Switch>
         </div>

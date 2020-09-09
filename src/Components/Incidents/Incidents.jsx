@@ -1,6 +1,5 @@
 import React from 'react';
 import {Button, Card, Table} from "react-bootstrap";
-import {addIncidentActionCreator, updateNewIncidentTextActionCreator} from "../../redux/incident-reducer";
 import * as XLSX from "xlsx";
 
 
@@ -54,12 +53,12 @@ const Incidents = (props) => {
 
 
     let onAddIncident = () => {
-        props.store.dispatch(addIncidentActionCreator())
+        props.addIncident();
     }
 
     let onIncidentChange = (e) => {
         let text = e.target.value;
-        props.store.dispatch(updateNewIncidentTextActionCreator(text))
+        props.updateNewIncidentText(text);
     }
     return (
         <div>

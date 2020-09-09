@@ -3,7 +3,7 @@ import personReducer from "./person-reducer";
 
 let store = {
     _state: {
-        personTable: {
+        personPage: {
             newPersonText: "",
             personDataHeader: [
                 {
@@ -19,7 +19,7 @@ let store = {
                     about: "О себе"
                 }]
         },
-        incidentTable: {
+        incidentPage: {
             newFieldsText: "",
             incidentTableHeader: [
                 {
@@ -102,8 +102,8 @@ let store = {
         this._state.field = "";
     },
     dispatch(action) {
-        this._state.incidentTable = incidentReducer(this._state.incidentTable, action);
-        this._state.personsData = personReducer(this._state.personTable, action);
+        this._state.incidentPage = incidentReducer(this._state.incidentPage, action);
+        this._state.personsData = personReducer(this._state.personPage, action);
         this.callSubscriber(this._state);
     }
 

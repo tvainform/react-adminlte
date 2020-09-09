@@ -4,7 +4,7 @@ import PersonItem from "./PersonItem";
 
 const PersonsList = (props) => {
     debugger
-    let PersonsElements = props.state.personTable.personData.map(el =>
+    let PersonsElements = props.store.getState().personPage.personData.map(el =>
         <PersonItem id={el.id} name={el.name} profession={el.profession} about={el.about}/>
     );
 
