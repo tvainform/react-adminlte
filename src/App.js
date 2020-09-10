@@ -6,14 +6,15 @@ import Footer from './Components/Footer';
 import Aside from './Components/Aside/Aside';
 import Main from './Components/Main';
 import About from './Components/About';
-import PersonsList from './Components/Persons/PersonsList';
 import Coveralls from './Components/Coveralls';
 import Error404 from './Components/Error404';
 import Calendar from './Components/Calendar/Calendar';
 import ContentHeader from "./Components/ContentHeader/ContentHeader";
 import IncidentsContainer from "./Components/Incidents/IncidentsContainer";
+import PersonsContainer from "./Components/Persons/PersonsContainer";
+import UsersContainer from "./Components/Users/UsersContainer";
 
-const App = (props) => {
+const App = () => {
   return (
       <div className="wrapper">
         <Header/>
@@ -23,10 +24,11 @@ const App = (props) => {
           <Switch>
             <Route exact path="/" render={() => <Main />}/>
             <Route exact path="/about" render={() => <About />}/>
-            <Route exact path="/persons" render={() => <PersonsList/>}/>
+            <Route exact path="/persons" render={() => <PersonsContainer/>}/>
             <Route exact path="/coveralls" render={() => <Coveralls/>}/>
             <Route exact path="/calendar" render={() => <Calendar/>}/>
             <Route exact path="/incidents" render={() => <IncidentsContainer/>}/>
+              <Route exact path="/users" render={() => <UsersContainer/>}/>
             <Route render={() => <Error404/>}/>
           </Switch>
         </div>

@@ -16,7 +16,10 @@ let initialState = {
 }
 
 const personReducer = (state = initialState, action) => {
-
+    return {
+        ...state,
+        personData: [...state.personData]
+    }
     return state;
 }
 export default personReducer;

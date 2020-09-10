@@ -1,36 +1,39 @@
 import React from 'react';
 import {Button, Card, Table} from "react-bootstrap";
 import * as XLSX from "xlsx";
+import TableHeader from "./TableHeader";
+import TableBody from "./TableBody";
 
 
 const Incidents = (props) => {
     let IncidentTableHeaderList = props.incidents.incidentTableHeader.map(el =>
-        <tr>
-            <th>{el.h1}</th>
-            <th>{el.h2}</th>
-            <th>{el.h3}</th>
-            <th>{el.h4}</th>
-            <th>{el.h5}</th>
-            <th>{el.h6}</th>
-            <th>{el.h7}</th>
-            <th>{el.h8}</th>
-            <th>{el.h9}</th>
-            <th>{el.h10}</th>
-        </tr>
+        <TableHeader key={el.id}
+                     h1={el.h1}
+                     h2={el.h1}
+                     h3={el.h1}
+                     h4={el.h1}
+                     h5={el.h1}
+                     h6={el.h1}
+                     h7={el.h1}
+                     h8={el.h1}
+                     h9={el.h1}
+                     h10={el.h1}
+        />
     );
     let IncidentElements = props.incidents.incidentData.map(el =>
-        <tr>
-            <td>{el.d1}</td>
-            <td>{el.d2}</td>
-            <td>{el.d3}</td>
-            <td>{el.d4}</td>
-            <td>{el.d5}</td>
-            <td>{el.d6}</td>
-            <td>{el.d7}</td>
-            <td>{el.d8}</td>
-            <td>{el.d9}</td>
-            <td>{el.d10}</td>
-        </tr>
+        <TableBody key={el.id}
+                   d1={el.d1}
+                   d2={el.d2}
+                   d3={el.d3}
+                   d4={el.d4}
+                   d5={el.d5}
+                   d6={el.d6}
+                   d7={el.d7}
+                   d8={el.d8}
+                   d9={el.d9}
+                   d10={el.d10}
+        />
+
     );
     const handleUpload = (e) => {
         e.preventDefault();
@@ -75,7 +78,8 @@ const Incidents = (props) => {
                                 </div>
                                 {/*<!-- /.card-header -->*/}
                                 <div className="card-body">
-                                    <Table responsive="true" autoWidth="false" id="example1" className="table table-bordered table-striped">
+                                    <Table responsive="true" autoWidth="false" id="example1"
+                                           className="table table-bordered table-striped">
                                         <thead>
                                         {IncidentTableHeaderList}
                                         </thead>

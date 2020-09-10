@@ -5,6 +5,7 @@ let initialState = {
     newFieldsText: "",
     incidentTableHeader: [
         {
+            id: 1,
             h1: "Номер заявки",
             h2: "Статус",
             h3: "Подразделение инициатора",
@@ -40,29 +41,17 @@ let initialState = {
 const incidentReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_INCIDENT: {
-            let newIncident = {
-                id: 4,
-                d1: "",
-                d2: "",
-                d3: "",
-                d4: "",
-                d5: "",
-                d6: "",
-                d7: "",
-                d8: "",
-                d9: state.newFieldsText,
-                d10: "",
+            return{
+                ...state,
+                newFieldsText: "",
+                incidentData: [...state.incidentData, {id: 4, d1: "1", d2: "2", d3: "3", d4: "4", d5: "5", d6: "6", d7: "7", d8: "8", d9: state.newFieldsText, d10: "10"}]
             };
-            let stateCopy = {...state};
-            stateCopy.incidentData = [...state.incidentData];
-            stateCopy.incidentData.push(newIncident);
-            stateCopy.newFieldsText = "";
-            return stateCopy;
         }
         case UPDATE_NEW_INCIDENT_TEXT: {
-            let stateCopy = {...state}
-            stateCopy.newFieldsText = action.newText;
-            return stateCopy;
+            return {
+                ...state,
+                newFieldsText: action.newText,
+            }
         }
         default:
             return state;

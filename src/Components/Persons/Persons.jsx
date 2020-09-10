@@ -2,10 +2,10 @@ import React from 'react'
 import PersonItem from "./PersonItem";
 
 
-const PersonsList = (props) => {
+const Persons = (props) => {
     debugger
-    let PersonsElements = props.store.getState().personPage.personData.map(el =>
-        <PersonItem id={el.id} name={el.name} profession={el.profession} about={el.about}/>
+    let PersonsElements = props.persons.personData.map(el =>
+        <PersonItem id={el.id} name={el.name} key={el.id} profession={el.profession} about={el.about}/>
     );
 
     return (
@@ -39,4 +39,4 @@ const PersonsList = (props) => {
     )
 }
 
-export default PersonsList;
+export default Persons;

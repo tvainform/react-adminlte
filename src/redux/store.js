@@ -1,3 +1,4 @@
+/*
 import incidentReducer from "./incident-reducer";
 import personReducer from "./person-reducer";
 
@@ -111,3 +112,4 @@ let store = {
 
 export default store;
 window.state = store;
+*/
