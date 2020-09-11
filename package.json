@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^7.1.2",
     "admin-lte": "3.0",
     "file-saver": "^2.0.2",
+    "firebase": "^7.20.0",
+    "firebase-tools": "^8.10.0",
     "js-xlsx": "^0.8.22",
     "mongodb": "^3.6.0",
     "react": "^16.13.1",
