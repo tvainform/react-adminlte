@@ -4,10 +4,13 @@ const SET_USERS = 'SET_USERS';
 
 let initialState = {
     users: [
-        /*{id:1,followed:true,post:"Ведущий инженер",fullName:"Александр Сергеевич Пушкин",status:"На смене",tab:"10000111",tel:"89997274586"},
+/*        {id:1,followed:true,post:"Ведущий инженер",fullName:"Александр Сергеевич Пушкин",status:"На смене",tab:"10000111",tel:"89997274586"},
         {id:2,followed:false,post:"Инженер по АСУТП",fullName:"Александр Сергеевич Пушкин",status:"Выходной",tab:"10000222",tel:"89997274586"},
-        {id:2,followed:true,post:"Приборист",fullName:"Александр Сергеевич Пушкин",status:"На больничном",tab:"10000333",tel:"89997274586"}
-    */],
+        {id:2,followed:true,post:"Приборист",fullName:"Александр Сергеевич Пушкин",status:"На больничном",tab:"10000333",tel:"89997274586"}*/
+    ],
+    pageSize: 5,
+    totalUsersCount: 20,
+    currentPage: 2
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -33,7 +36,8 @@ const usersReducer = (state = initialState, action) => {
                     return u;
                 })
             }
-        }        case SET_USERS: {
+        }
+        case SET_USERS: {
             return {...state, users: [...state.users, action.users]}
         }
         default:
