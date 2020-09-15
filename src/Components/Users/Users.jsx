@@ -6,7 +6,7 @@ import userPhoto from '../../assets/images/user.jpg'
 
 export default class Users extends React.Component {
     componentDidMount() {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+        axios.get('https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}')
             .then(response => {
                 this.props.setUsers(response.data.items);
             });
@@ -14,7 +14,7 @@ export default class Users extends React.Component {
     }
 
     render() {
-        let pagesCount = this.props.totalUsersCount / this.props.pageSize;
+        let pagesCount = Math.ceil (this.props.totalUsersCount / this.props.pageSize);
         let pages = [];
         for (let i=1; i<= pagesCount; i++){
             pages.push(i);
@@ -90,16 +90,8 @@ export default class Users extends React.Component {
                             <ul className="pagination justify-content-center m-0">
                                 {pages.map(p=> {
                                     return <li className={this.props.currentPage === p && 'active page-item'}>
-                                        <NavLink className="page-link" to="#">{p}</NavLink></li>
+                                        <NavLink onClick={()=>{this.props.setCurrentPage(p)}} className="page-link" to="#">{p}</NavLink></li>
                                 })}
-
-                  {/*              <li className="page-item"><a className="page-link" href="#">2</a></li>
-                                <li className="page-item"><a className="page-link" href="#">3</a></li>
-                                <li className="page-item"><a className="page-link" href="#">4</a></li>
-                                <li className="page-item"><a className="page-link" href="#">5</a></li>
-                                <li className="page-item"><a className="page-link" href="#">6</a></li>
-                                <li className="page-item"><a className="page-link" href="#">7</a></li>
-                                <li className="page-item"><a className="page-link" href="#">8</a></li>*/}
                             </ul>
                         </nav>
                     </div>

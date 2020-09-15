@@ -12,13 +12,13 @@ class Menu extends Component {
                     <NavItem className="menu-open">
                         <NavLink to="#" activeClassName="" className="nav-link">
                             <i className="nav-icon fas fa-users" />
-                            <p>Отдел<i className="right fas fa-angle-left" /></p>
+                            <p>Команда<i className="right fas fa-angle-left" /></p>
                         </NavLink>
                         <Nav className="nav-treeview">
                             <NavItem>
-                                <NavLink activeClassName="active" to="/persons" className="nav-link">
-                                    <i className="far fa-circle nav-icon" />
-                                    <p>Персонал</p>
+                                <NavLink activeClassName="active" to="/users" className="nav-link">
+                                    <i className="nav-icon fas fa-users" />
+                                    <p>Участники</p>
                                 </NavLink>
                             </NavItem>
                             <NavItem>

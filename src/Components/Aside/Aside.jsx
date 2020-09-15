@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Switch, Route, Link, NavLink} from 'react-router-dom'
-import { NavItem, Nav } from 'react-bootstrap';
 import Menu from "./Menu";
 import Logo from "./Logo";
 import UserPanel from "./UserPanel";
-import SearchForm from "./SearchForm";
 export default class Aside extends Component {
     render() {
         return (
@@ -16,8 +13,6 @@ export default class Aside extends Component {
     <div className="sidebar">
       {/* Sidebar user panel (optional) */}
 <UserPanel/>
-      {/* SidebarSearch Form */}
-<SearchForm/>
       {/* Sidebar Aside */}
 <Menu/>
       {/* /.sidebar-menu */}
