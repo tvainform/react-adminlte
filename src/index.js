@@ -1,5 +1,5 @@
 import * as serviceWorker from './serviceWorker';
-import store from "./redux/redux-store"
+import store from "./redux/redux-store";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -8,6 +8,7 @@ import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import * as firebase from 'firebase'
 import {initializeApp} from "firebase";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyDOncgrRVKkdECjGJd8xJ3xcz7EdnabeHk",
