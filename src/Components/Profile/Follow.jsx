@@ -10,9 +10,9 @@ const Follow = (props) => {
                              alt="User profile picture"/>
                     </div>
 
-                    <h3 className="profile-username text-center">Nina Mcintire</h3>
+                    <h3 className="profile-username text-center">{props.profile.fullName}</h3>
 
-                    <p className="text-muted text-center">Software Engineer</p>
+                    <p className="text-muted text-center">{props.profile.aboutMe}</p>
 
                     <ul className="list-group list-group-unbordered mb-3">
                         <li className="list-group-item">

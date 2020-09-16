@@ -31,7 +31,7 @@ export default class App extends Component {
                     <Switch>
                         <Route exact path="/" render={() => <Main/>}/>
                         <Route exact path="/about" render={() => <About/>}/>
-                        <Route path="/profile" render={() => <ProfileContainer/>}/>
+                        <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
                         <Route exact path="/coveralls" render={() => <Coveralls/>}/>
                         <Route exact path="/calendar" render={() => <Calendar/>}/>
                         <Route exact path="/incidents" render={() => <IncidentsContainer/>}/>

@@ -1,5 +1,5 @@
 import React from 'react'
-import userPhoto from "../../assets/images/user.jpg";
+import userPhoto from "../../assets/images/default-user.png";
 import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
@@ -40,7 +40,7 @@ let Users = (props) => {
                                                     </ul>
                                                 </div>
                                                 <div className="col-5 text-center">
-                                                    <img src={u.photos != null ? u.photos : userPhoto}
+                                                    <img src={u.photos != null ? u.photos.small : userPhoto}
                                                          alt="user-avatar"
                                                          className="img-circle img-fluid"/>
                                                 </div>

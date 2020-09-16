@@ -1,10 +1,10 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
 import Follow from "./Follow";
 import AboutMe from "./AboutMe";
 import Activity from "./Activity";
 import Timeline from "./Timeline";
 import Settings from "./Settings";
+
 
 let ProfileInfo = (props) => {
     return (
@@ -12,8 +12,8 @@ let ProfileInfo = (props) => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-3">
-                        <Follow props={props}/>
-                        <AboutMe/>
+                        <Follow profile={props.profile}/>
+                        <AboutMe profile={props.profile}/>
                     </div>
                     <div className="col-md-9">
                         <div className="card">
@@ -29,9 +29,9 @@ let ProfileInfo = (props) => {
                             </div>
                             <div className="card-body">
                                 <div className="tab-content">
-                                    <Activity/>
-                                    <Timeline/>
-                                    <Settings/>
+                                    <Activity profile={props.profile}/>
+                                    <Timeline profile={props.profile}/>
+                                    <Settings profile={props.profile}/>
                                 </div>
                             </div>
                         </div>
