@@ -9,12 +9,11 @@ import About from './Components/About';
 import Coveralls from './Components/Coveralls';
 import Error404 from './Components/Error404';
 import Calendar from './Components/Calendar/Calendar';
-import ContentHeader from "./Components/ContentHeader/ContentHeader";
-import IncidentsContainer from "./Components/Incidents/IncidentsContainer";
-import ProfileContainer from "./Components/Profile/ProfileContainer";
-import UsersContainer from "./Components/Users/UsersContainer";
-import * as firebase from "firebase";
-import Profile from "./Components/Profile/Profile";
+import ContentHeader from './Components/ContentHeader/ContentHeader';
+import IncidentsContainer from './Components/Incidents/IncidentsContainer';
+import ProfileContainer from './Components/Profile/ProfileContainer';
+import UsersContainer from './Components/Users/UsersContainer';
+import * as firebase from 'firebase';
 
 
 export default class App extends Component {
@@ -32,7 +31,7 @@ export default class App extends Component {
                     <Switch>
                         <Route exact path="/" render={() => <Main/>}/>
                         <Route exact path="/about" render={() => <About/>}/>
-                        <Route path="/profile" render={() => <Profile/>}/>
+                        <Route path="/profile" render={() => <ProfileContainer/>}/>
                         <Route exact path="/coveralls" render={() => <Coveralls/>}/>
                         <Route exact path="/calendar" render={() => <Calendar/>}/>
                         <Route exact path="/incidents" render={() => <IncidentsContainer/>}/>

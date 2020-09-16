@@ -3,7 +3,7 @@ import ProfileInfo from "./ProfileInfo";
 
 
 const Profile = (props) => {
-    return (<ProfileInfo/>)
+    return (<ProfileInfo profile={props.profile}/>)
 }
 
 export default Profile;
