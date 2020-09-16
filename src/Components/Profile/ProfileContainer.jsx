@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import Persons from "./Persons";
+import Profile from "./Profile";
 
 
 let mapStateToProps = (state) => {
@@ -12,6 +12,6 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {}
 }
-const PersonsContainer = connect(mapStateToProps, mapDispatchToProps)(Persons);
+const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile);
 
-export default PersonsContainer;
+export default ProfileContainer;

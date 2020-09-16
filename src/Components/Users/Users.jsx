@@ -57,7 +57,7 @@ let Users = (props) => {
                                                     }}><i className="far fa-bell"/> Подписаться</button>
                                                 }
 
-                                                <NavLink to={"/persons/" + props.id}
+                                                <NavLink to={"/profile/" + u.id}
                                                          className="btn btn-sm btn-primary">
                                                     <i className="fas fa-user"/> Профиль
                                                 </NavLink>
@@ -74,7 +74,7 @@ let Users = (props) => {
                     <nav aria-label="Contacts Page Navigation">
                         <ul className="pagination justify-content-center m-0">
                             {pages.map(p=> {
-                                return <li className={props.currentPage === p && 'active page-item'}>
+                                return <li className={props.currentPage === p ? 'active page-item': 'page-item'}>
                                     <NavLink onClick={(e)=>{props.onPageChanged(p);}} className="page-link" to="#">{p}</NavLink></li>
                             })}
                         </ul>

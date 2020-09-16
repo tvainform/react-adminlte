@@ -1,7 +1,7 @@
 import {NavLink} from "react-router-dom";
 import React from "react";
 
-const PersonItem = (props) => {
+const ProfileItem = (props) => {
     return (
         <div className="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
             <div className="card bg-light">
@@ -43,4 +43,4 @@ const PersonItem = (props) => {
         </div>
     )
 }
-export default PersonItem;
+export default ProfileItem;
