@@ -3,9 +3,9 @@ import userPhoto from "../../assets/images/default-user.png";
 import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
-    let pagesCount = Math.ceil (props.totalUsersCount / props.pageSize);
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
-    for (let i=1; i<= pagesCount; i++){
+    for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
     return (
@@ -48,11 +48,12 @@ let Users = (props) => {
                                         </div>
                                         <div className="card-footer">
                                             <div className="d-flex justify-content-between">
-
-                                                {u.followed ? <button className="btn btn-sm btn-success" onClick={() => {
-                                                        props.unfollow(u.id)
+                                                {u.followed ?
+                                                    <button disabled={props.followingInProgress} className="btn btn-sm btn-success" onClick={() => {
+                                                        props.toggleFollowingProgress(true);
+                                                        props.unfollow(u.id);
                                                     }}><i className="fas fa-bell"/> Отписаться</button> :
-                                                    <button className="btn btn-sm btn-warning" onClick={() => {
+                                                    <button disabled={props.followingInProgress} className="btn btn-sm btn-warning" onClick={() => {
                                                         props.follow(u.id)
                                                     }}><i className="far fa-bell"/> Подписаться</button>
                                                 }
@@ -73,9 +74,11 @@ let Users = (props) => {
                 <div className="card-footer">
                     <nav aria-label="Contacts Page Navigation">
                         <ul className="pagination justify-content-center m-0">
-                            {pages.map(p=> {
-                                return <li className={props.currentPage === p ? 'active page-item': 'page-item'}>
-                                    <NavLink onClick={(e)=>{props.onPageChanged(p);}} className="page-link" to="#">{p}</NavLink></li>
+                            {pages.map(p => {
+                                return <li className={props.currentPage === p ? 'active page-item' : 'page-item'}>
+                                    <NavLink onClick={(e) => {
+                                        props.onPageChanged(p);
+                                    }} className="page-link" to="#">{p}</NavLink></li>
                             })}
                         </ul>
                     </nav>
