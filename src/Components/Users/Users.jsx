@@ -1,6 +1,7 @@
 import React from 'react'
 import userPhoto from "../../assets/images/default-user.png";
 import {NavLink} from "react-router-dom";
+import {usersAPI} from "../../api/api";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -51,10 +52,10 @@ let Users = (props) => {
                                                 {u.followed ?
                                                     <button disabled={props.followingInProgress} className="btn btn-sm btn-success" onClick={() => {
                                                         props.toggleFollowingProgress(true);
-                                                        props.unfollow(u.id);
+                                                        usersAPI.follow(u.id)
                                                     }}><i className="fas fa-bell"/> Отписаться</button> :
                                                     <button disabled={props.followingInProgress} className="btn btn-sm btn-warning" onClick={() => {
-                                                        props.follow(u.id)
+                                                        usersAPI.unfollow(u.id)
                                                     }}><i className="far fa-bell"/> Подписаться</button>
                                                 }
 
